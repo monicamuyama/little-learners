@@ -3,6 +3,15 @@ import './Dashboard.css';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Footer from '../Footer.js'; 
 import Math from './Math.js';
+import English from './English.js';
+import Spanish from './Spanish.js';
+import Writing from './Writing.js';
+import Literacy from './Literacy.js';
+import Music from './Music.js';
+import Reading from './Reading.js';
+import Science from './Science.js';
+
+
 
 
 const Dashboard = () => {
@@ -28,7 +37,6 @@ const Dashboard = () => {
     <div className="dashboard-wrapper">
       <div className="top-menu">
         <h1>Parent Dashboard</h1>
-        <p>Welcome parent</p>
       </div>
 
       <div className="dashboard-container">
@@ -55,13 +63,13 @@ const DashboardWithRouter = () => (
     <Routes>
       <Route path="/" element={<Dashboard />} />
       <Route path="/maths" element={<Math/>} />
-      <Route path="/literacy" element={<div>Literacy Content</div>} />
-      <Route path="/reading" element={<div>Reading Content</div>} />
-      <Route path="/english" element={<div>English Content</div>} />
-      <Route path="/music" element={<div>English Content</div>} />
-      <Route path="/science" element={<div>English Content</div>} />
-      <Route path="/spanish" element={<div>English Content</div>} />
-      <Route path="/writing" element={<div>English Content</div>} />
+      <Route path="/literacy" element={<Literacy/>} />
+      <Route path="/reading" element={<Reading/>} />
+      <Route path="/english" element={<English/>} />
+      <Route path="/music" element={<Music/>} />
+      <Route path="/science" element={<Science/>} />
+      <Route path="/spanish" element={<Spanish/>} />
+      <Route path="/writing" element={<Writing/>} />
 
     </Routes>
   </Router>

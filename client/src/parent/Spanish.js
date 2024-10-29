@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './Subject.css'; // Import styles specific to the Math component
 
-const Math = () => {
+const Spanish = () => {
     // State to track which tab is currently active
     const [activeTab, setActiveTab] = useState('lessons');
 
@@ -83,4 +83,4 @@ const Math = () => {
     );
 };
 
-export default Math;
+export default Spanish;
