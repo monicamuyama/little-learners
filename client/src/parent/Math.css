@@ -1,0 +1,62 @@
+/* src/parent/Math.css */
+.math-container {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.top-menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff; /* White background */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners for the top menu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Space below the top menu */
+}
+
+.top-menu button {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.top-menu button.active {
+    font-weight: bold; /* Highlight active tab */
+    border-bottom: 2px solid #4A90E2; /* Underline active tab */
+}
+
+.lessons-section, .videos-section, .books-section {
+    margin: 20px 0;
+}
+
+h3 {
+    color: #4A90E2; /* Blue color for headings */
+}
+
+button {
+    margin-left: 10px;
+    background-color: #4CAF50; /* Green color for the button */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+ul {
+    list-style-type: none; /* Remove bullets from list */
+    padding: 0;
+}
+
+li {
+    margin: 10px 0; /* Space between list items */
+}

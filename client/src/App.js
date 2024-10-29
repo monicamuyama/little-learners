@@ -1,14 +1,15 @@
 // App.js
 
 import React from "react";
+
 // Importing Parent Dashboard component
-import ParentDashboard from "./ParentDashboard"; 
+import Dashboard from "./parent/Dashboard";
 
 function App() {
   return (
     <div className="App">
       {/* Temporarily rendering the Parent Dashboard directly */}
-      <ParentDashboard />
+      <Dashboard />
     </div>
   );
 }
