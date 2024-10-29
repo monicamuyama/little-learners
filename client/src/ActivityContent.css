@@ -1,0 +1,38 @@
+.activity-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: #f9f9fb;
+  border-radius: 8px;
+}
+
+.activity-content h2 {
+  color: #6d83f2;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.content {
+  font-size: 1rem;
+  color: #555;
+}
+
+.activity-cards {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  flex: 1;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
