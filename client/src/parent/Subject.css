@@ -9,7 +9,7 @@
 .top-menu {
     display: flex;
     justify-content: space-around;
-    background-color: #caffba; /* Light mint green for a fresh look */
+    background-color: #3EB489; /* Light mint green for a fresh look */
     padding: 10px;
     border-radius: 5px; /* Rounded corners for the top menu */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
