@@ -53,11 +53,11 @@ To run the application locally:
 1. Clone the repository:
  git clone https://github.com/yourusername/little-learners.git
 
-2. Navigate to the `frontend` directory and install dependencies:
+2. Navigate to the `client` directory and install dependencies:
    cd little-learners/client
    npm install
   
-3. Navigate to the `backend` directory and install dependencies:
+3. Navigate to the `server` directory and install dependencies:
    cd ../server
    npm install
   
