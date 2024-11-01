@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './signup.css';
 
+
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,16 +19,21 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to backend)
+    console.log('User type:', formData.userType); // Log the user type for debugging
+
+    // Check if the user type is Parent and navigate accordingly
+    if (formData.userType === 'Parent') {
+      navigate('/parent/dashboard');
+    }
+    // Add additional logic here for other user types like "Teacher"
     console.log('Form submitted:', formData);
   };
 
   return (
     <div className="signup-container">
-      <div className="signup-box"> {/* Added signup-box here */}
+      <div className="signup-box">
         <h2>Create an Account</h2>
         <form onSubmit={handleSubmit} className="signup-form">
-          {/* Name Input */}
           <div className="input-group">
             <label>
               Full Name:
@@ -39,7 +47,6 @@ function Signup() {
             </label>
           </div>
 
-          {/* Email Input */}
           <div className="input-group">
             <label>
               Email:
@@ -53,7 +60,6 @@ function Signup() {
             </label>
           </div>
 
-          {/* Password Input */}
           <div className="input-group">
             <label>
               Password:
@@ -67,7 +73,6 @@ function Signup() {
             </label>
           </div>
 
-          {/* User Type Dropdown */}
           <div className="input-group">
             <label>
               I am a:
@@ -82,7 +87,6 @@ function Signup() {
             </label>
           </div>
 
-          {/* Submit Button */}
           <button type="submit" className="signup-button">Sign Up</button>
         </form>
       </div>

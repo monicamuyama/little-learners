@@ -7,14 +7,17 @@ import image3 from './image3.PNG';
 import { Route, Routes, Link } from 'react-router-dom';
 import Signin from './signin';
 import Signup from './signup';
+import Dashboard from './parent/Dashboard';
+
 
 function App() {
   return (
     <div className="App">
       {/* Top Navigation Bar */}
       <nav className="App-nav">
-        <div className="App-logo">🌟 Little Learners</div>
+        <div className="App-logo">🌟 Little Learners 🌟 </div>
         <div className="App-nav-links">
+          <Link to ="/" className="App-nav-link">Home</Link>
           <Link to="/signup" className="App-nav-link">Sign Up</Link>
           <Link to="/signin" className="App-nav-link">Sign In</Link>
         </div>
@@ -58,6 +61,11 @@ function App() {
         {/* Sign In and Sign Up Routes */}
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/parent/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<App/>} />
+
+
+
       </Routes>
 
       {/* Footer */}
