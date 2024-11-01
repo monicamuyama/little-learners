@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+/* Top Navigation Bar */
+.App-nav {  
+  position: fixed;  
+  top: 0;  
+  width: 100%;  
+  display: flex;  
+  justify-content: space-between;  
+  align-items: center;  
+  padding: 10px 20px;  
+  background-color: #3EB489;  
+  color: white;  
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);  
+  font-size: 1.2rem;  
+  z-index: 1000;
+}
+.App-logo {  
+  font-weight: bold;  
+  font-size: 1.5rem;  
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);  
+  cursor: pointer;
+}
+.App-nav-links {  
+  display: flex;  
+  gap: 15px;
+}
+.App-nav-link {  
+  color: white;  
+  text-decoration: none;  
+  padding: 8px 15px;  
+  border-radius: 20px;  
+  transition: background-color 0.3s ease;  
+  font-weight: bold;
+}
+.App-nav-link:hover {  
+  background-color: #4DB5FF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Main Container */
+.App {  
+  display: flex;  
+  flex-direction: column;  
+  min-height: 100vh;  
+  align-items: center;  
+  text-align: center;  
+  background-image: url('tod.webp');
+  padding-top: 70px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Main Content */
+.App-header {  
+  padding: 40px;  
+  border-radius: 20px;  
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  
+  max-width: 600px;  
+  margin-bottom: 40px;  
+  color: #0a0a0a;  
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+/* Content Section */
+.content-container {  
+  display: flex;  
+  justify-content: center;  
+  gap: 30px;  
+  width: 90%;  
+  flex-wrap: wrap;  
+  margin: 20px 0;  
+}
+.content-item {  
+  min-width: 300px;  
+  height: 250px;  
+  background-size: cover;  
+  background-position: center;  
+  border-radius: 15px;  
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);  
+  display: flex;  
+  flex-direction: column;  
+  justify-content: flex-end;  
+  align-items: center;  
+  color: white;  
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);  
+  padding: 20px;  
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+p{
+  size: 10px;
+}
+.content-item:hover {  
+  transform: translateY(-5px);  
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Header Animations */
+h1 {  
+  font-size: 2.8rem;  
+  color: #FF69B4;  
+  animation: bounce 2s infinite ease-in-out;
+}
+.tagline, .description, .highlight {  
+  font-size: 1.2rem;  
+  color: #333;
+}
+
+/* Animation Keyframes */
+@keyframes bounce {  
+  0%, 100% {    
+    transform: translateY(0);  
+  }  
+  50% {    
+    transform: translateY(-10px);  
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Footer */
+footer {  
+  text-align: center;  
+  width: 100%;  
+  position: relative;  
+  margin-top: auto; /* Makes footer stick to the bottom if page is shorter than viewport */
 }
