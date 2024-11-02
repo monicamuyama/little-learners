@@ -92,7 +92,7 @@
 }
 
 /* Main Header Animations */
-h1 {  
+.top {  
   font-size: 2.8rem;  
   color: #FF69B4;  
   animation: bounce 2s infinite ease-in-out;

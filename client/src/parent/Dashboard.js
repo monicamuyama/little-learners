@@ -1,16 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import Footer from '../Footer.js'; 
-import Math from './Math.js';
-import English from './English.js';
-import Spanish from './Spanish.js';
-import Writing from './Writing.js';
-import Literacy from './Literacy.js';
-import Music from './Music.js';
-import Reading from './Reading.js';
-import Science from './Science.js';
-
+import { useNavigate } from 'react-router-dom';
+import Footer from '../Footer';
 
 
 
@@ -52,27 +43,11 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
-      <Footer /> {}
+      <Footer/>{}
 
     </div>
   );
 };
 
-const DashboardWithRouter = () => (
-  <Router>
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/maths" element={<Math/>} />
-      <Route path="/literacy" element={<Literacy/>} />
-      <Route path="/reading" element={<Reading/>} />
-      <Route path="/english" element={<English/>} />
-      <Route path="/music" element={<Music/>} />
-      <Route path="/science" element={<Science/>} />
-      <Route path="/spanish" element={<Spanish/>} />
-      <Route path="/writing" element={<Writing/>} />
 
-    </Routes>
-  </Router>
-);
-
-export default DashboardWithRouter;
+export default Dashboard;
