@@ -1,0 +1,49 @@
+/* EnrolledLessons.css */
+
+.enrolled-lessons {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .calendar-container {
+    margin-bottom: 20px;
+  }
+  
+  .lessons-list {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lessons-list h2 {
+    color: #555;
+  }
+  
+  .lessons-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .lessons-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .lessons-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .lessons-list strong {
+    color: #007bff;
+  }
+  

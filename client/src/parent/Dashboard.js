@@ -1,11 +1,16 @@
-import React from 'react';
-import SideMenu from './sideMenu';
-import './Dashboard.css';
+// Dashboard.js
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Footer';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const subjects = [
     { name: 'Maths', cssClass: 'subject-maths', route: 'maths' },
@@ -18,15 +23,40 @@ const Dashboard = () => {
     { name: 'Writing', cssClass: 'subject-writing', route: 'writing' },
   ];
 
+  const menuItems = [
+    { name: 'Register a child', route: '/RegistrationForm' },
+    { name: 'Enrolled Lessons', route: '/EnrolledLessons' },
+    { name: 'Quizzes', route: '/Quizzes' },
+    { name: 'Videos', route: '/TeacherVideos' },
+    { name: 'Books', route: '/TeacherBooks' },
+    { name: "Children's Progress", route: '/ChildProgress' },
+    { name: 'Message Teachers', route: '/ParentTeacherMessaging' },
+    { name: 'Review Teachers', route: '/TeacherReviews' },
+  ];
+
   return (
     <div className="dashboard-wrapper">
       <div className="top-menu">
         <h1>Parent Dashboard</h1>
         <button className="log">Log out</button>
       </div>
-      
+
       <div className="dashboard-content">
-        <SideMenu />
+        <div className={`side-menu ${isMenuOpen ? 'expanded' : ''}`}>
+          <button className="menu-toggle" onClick={toggleMenu}>☰</button>
+          <div className={`menu-items ${isMenuOpen ? 'open' : ''}`}>
+            {menuItems.map((item, index) => (
+              <div
+                key={index}
+                className="menu-item"
+                onClick={() => navigate(item.route)}
+              >
+                {item.name} {/* Ensure we render the item's name */}
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="main-content">
           <div className="dashboard-container">
             <div className="subjects-container">
@@ -41,9 +71,10 @@ const Dashboard = () => {
               ))}
             </div>
           </div>
-          <Footer />
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
