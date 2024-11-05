@@ -6,8 +6,12 @@ const TeacherBooks = () => {
   const [books] = useState([]); // Placeholder array, without hardcoded data
 
   return (
-    <div className="teacher-books-page">
+    <div>
+      <div className='top-menu'>
       <h1>Teacher's Book Library</h1>
+
+      </div>
+      <div className="teacher-books-page">
 
       {books.length === 0 ? (
         <p className="no-books-message">No books have been posted by teachers yet. Check back later!</p>
@@ -32,7 +36,10 @@ const TeacherBooks = () => {
             </div>
           ))}
         </div>
+
       )}
+
+    </div>
     </div>
   );
 };

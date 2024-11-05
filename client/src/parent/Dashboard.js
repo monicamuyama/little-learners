@@ -1,4 +1,3 @@
-// Dashboard.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Footer';
@@ -39,19 +38,19 @@ const Dashboard = () => {
       <div className="top-menu">
         <h1>Parent Dashboard</h1>
         <button className="log">Log out</button>
+        <button className="menu-toggle" onClick={toggleMenu}>☰</button>
       </div>
 
       <div className="dashboard-content">
         <div className={`side-menu ${isMenuOpen ? 'expanded' : ''}`}>
-          <button className="menu-toggle" onClick={toggleMenu}>☰</button>
-          <div className={`menu-items ${isMenuOpen ? 'open' : ''}`}>
+          <div className="menu-items">
             {menuItems.map((item, index) => (
               <div
                 key={index}
                 className="menu-item"
                 onClick={() => navigate(item.route)}
               >
-                {item.name} {/* Ensure we render the item's name */}
+                {item.name}
               </div>
             ))}
           </div>
@@ -59,6 +58,12 @@ const Dashboard = () => {
 
         <div className="main-content">
           <div className="dashboard-container">
+            {/* Message section */}
+            <div className="message">
+              <p>Select a subject to enroll. Watch videos and read books:</p>
+            </div>
+
+            {/* Subjects container */}
             <div className="subjects-container">
               {subjects.map((subject) => (
                 <div

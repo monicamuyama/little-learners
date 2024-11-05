@@ -34,8 +34,12 @@ const ParentTeacherMessaging = () => {
   );
 
   return (
-    <div className="parent-teacher-messaging">
+    <div>
+      <div className='top-menu'>
       <h1>Parent-Teacher Messaging</h1>
+
+      </div>
+      <div className="parent-teacher-messaging">
 
       <div className="search-teacher">
         <input
@@ -86,6 +90,7 @@ const ParentTeacherMessaging = () => {
           <p className="select-teacher-message">Select a teacher to start messaging.</p>
         )}
       </div>
+    </div>
     </div>
   );
 };

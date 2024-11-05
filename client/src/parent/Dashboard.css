@@ -26,24 +26,25 @@
 }
 
 .top-menu .log {  
-  background-color: #FFFFFF; /* Background color matching top menu */
-  color: rgb(7, 228, 18);  /* Text color */
-  padding: 10px 20px;  /* Increased padding for a larger button */
-  border: none;  /* Remove default border */
-  border-radius: 25px;  /* Rounded corners for a softer look */
-  font-size: 1rem;  /* Font size */
-  cursor: pointer;  /* Pointer cursor on hover */
-  transition: background-color 0.3s ease, transform 0.3s ease;  /* Smooth transition for hover effects */
+  background-color: #FFFFFF;
+  color: rgb(7, 228, 18);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.top-menu .log:hover {  
-  background-color: #FFFFFF; /* Darker shade on hover */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+.top-menu .log:hover {
+  background-color: #FFFFFF;
+  transform: scale(1.05);
 }
 
-.top-menu .log:focus {
-  outline: none; /* Remove focus outline */
+.top-menu .menu-toggle {
+  display: none;
 }
+
 .dashboard-content {
   display: flex;
   flex: 1;
@@ -56,10 +57,21 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  height: 100vh;
 }
 
-.menu-toggle {
-  display: none;
+.side-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 4px;
+}
+
+.side-menu::-webkit-scrollbar-track {
+  background-color: #f9f9f9;
 }
 
 .menu-items {
@@ -104,7 +116,8 @@
 }
 
 .subject-box {
-  width: 150px;
+  width: 100%;
+  max-width: 150px;
   height: 150px;
   display: flex;
   justify-content: center;
@@ -119,6 +132,11 @@
   padding: 10px;
 }
 
+.subject-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
 .subject-maths { background-color: #ff8a80; }
 .subject-literacy { background-color: #ffb74d; }
 .subject-reading { background-color: #81c784; }
@@ -128,11 +146,6 @@
 .subject-spanish { background-color: #64c1f6; }
 .subject-writing { background-color: #f6649c; }
 
-.subject-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-}
-
 .footer {
   text-align: center;
   padding: 15px;
@@ -141,14 +154,13 @@
 }
 
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+  .top-menu .menu-toggle {
+    display: inline;
     background-color: #333;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 0.5rem;
-    margin-bottom: 1rem;
   }
 
   .side-menu {
@@ -165,4 +177,31 @@
   .side-menu.expanded {
     transform: translateX(0);
   }
+
+  /* Adjust grid for medium screens */
+  .subjects-container {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile adjustments for single-column layout */
+  .subjects-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .subject-box {
+    max-width: 100%;
+  }
+}
+.message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

@@ -6,8 +6,13 @@ const Quizzes = () => {
   const [quizzes] = useState([]); // Initially no quizzes
 
   return (
-    <div className="quizzes-page">
+    <div>
+      <div className='top-menu'>
       <h1>Available Quizzes</h1>
+
+
+      </div>
+      <div className="quizzes-page">
       {quizzes.length === 0 ? (
         <div className="no-quizzes">
           <p>No quizzes available at the moment.</p>
@@ -26,6 +31,7 @@ const Quizzes = () => {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 };

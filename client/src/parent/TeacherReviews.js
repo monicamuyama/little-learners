@@ -18,8 +18,12 @@ const TeacherReviews = () => {
   };
 
   return (
-    <div className="teacher-reviews-page">
+    <div>
+      <div className='top-menu'>
       <h1>Teacher Reviews</h1>
+
+      </div>
+    <div className="teacher-reviews-page">
 
       <div className="review-list">
         {reviews.length === 0 ? (
@@ -72,6 +76,7 @@ const TeacherReviews = () => {
           <button type="submit" className="submit-button">Submit Review</button>
         </form>
       </div>
+    </div>
     </div>
   );
 };
