@@ -1,6 +1,7 @@
+// Dashboard.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../Footer';  // Import Footer component
+import Footer from '../Footer';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -23,8 +24,14 @@ const Dashboard = () => {
   ];
 
   const menuItems = [
-    'Register child', 'Enrolled Lessons', 'Quizzes', 'Videos', 'Books', 
-    'Children\'s Progress', 'Message Teachers', 'Review Teachers'
+    { name: 'Register a child', route: '/RegistrationForm' },
+    { name: 'Enrolled Lessons', route: '/EnrolledLessons' },
+    { name: 'Quizzes', route: '/Quizzes' },
+    { name: 'Videos', route: '/TeacherVideos' },
+    { name: 'Books', route: '/TeacherBooks' },
+    { name: "Children's Progress", route: '/ChildProgress' },
+    { name: 'Message Teachers', route: '/ParentTeacherMessaging' },
+    { name: 'Review Teachers', route: '/TeacherReviews' },
   ];
 
   return (
@@ -39,7 +46,13 @@ const Dashboard = () => {
           <button className="menu-toggle" onClick={toggleMenu}>☰</button>
           <div className={`menu-items ${isMenuOpen ? 'open' : ''}`}>
             {menuItems.map((item, index) => (
-              <div key={index} className="menu-item">{item}</div>
+              <div
+                key={index}
+                className="menu-item"
+                onClick={() => navigate(item.route)}
+              >
+                {item.name} {/* Ensure we render the item's name */}
+              </div>
             ))}
           </div>
         </div>
@@ -61,7 +74,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <Footer /> {/* Add Footer component here */}
+      <Footer />
     </div>
   );
 };
