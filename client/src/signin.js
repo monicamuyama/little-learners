@@ -1,8 +1,10 @@
 import React from 'react';
 import './signin.css';
+import Footer from './Footer';
 
 const Signin = () => {
   return (
+    <div>
     <div className="signin-container">
       <div className="signin-box">
         <h2>Sign In</h2>
@@ -18,8 +20,13 @@ const Signin = () => {
           <button type="submit" className="signin-button">Login</button>
         </form>
       </div>
+
+    </div>
+    <Footer/>
+
     </div>
   );
+  
 };
 
 export default Signin;

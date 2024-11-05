@@ -59,3 +59,11 @@ select {
 .signup-button:hover {
     background-color: #0056b3;
 }
+
+footer {  
+    text-align: center;  
+    width: 100%;  
+    position: relative;  
+    margin-top: auto; /* Makes footer stick to the bottom if page is shorter than viewport */
+  }
+  
