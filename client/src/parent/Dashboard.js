@@ -1,11 +1,15 @@
-import React from 'react';
-import SideMenu from './sideMenu';
-import './Dashboard.css';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../Footer';
+import Footer from '../Footer';  // Import Footer component
+import './Dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const subjects = [
     { name: 'Maths', cssClass: 'subject-maths', route: 'maths' },
@@ -18,15 +22,28 @@ const Dashboard = () => {
     { name: 'Writing', cssClass: 'subject-writing', route: 'writing' },
   ];
 
+  const menuItems = [
+    'Register child', 'Enrolled Lessons', 'Quizzes', 'Videos', 'Books', 
+    'Children\'s Progress', 'Message Teachers', 'Review Teachers'
+  ];
+
   return (
     <div className="dashboard-wrapper">
       <div className="top-menu">
         <h1>Parent Dashboard</h1>
         <button className="log">Log out</button>
       </div>
-      
+
       <div className="dashboard-content">
-        <SideMenu />
+        <div className={`side-menu ${isMenuOpen ? 'expanded' : ''}`}>
+          <button className="menu-toggle" onClick={toggleMenu}>☰</button>
+          <div className={`menu-items ${isMenuOpen ? 'open' : ''}`}>
+            {menuItems.map((item, index) => (
+              <div key={index} className="menu-item">{item}</div>
+            ))}
+          </div>
+        </div>
+
         <div className="main-content">
           <div className="dashboard-container">
             <div className="subjects-container">
@@ -41,9 +58,10 @@ const Dashboard = () => {
               ))}
             </div>
           </div>
-          <Footer />
         </div>
       </div>
+
+      <Footer /> {/* Add Footer component here */}
     </div>
   );
 };
