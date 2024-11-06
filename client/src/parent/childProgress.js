@@ -14,8 +14,12 @@ const ChildProgress = () => {
   };
 
   return (
-    <div className="child-progress-page">
+    <div>
+      <div className='top-menu'>
       <h1>Track Your Child's Progress</h1>
+
+      </div>
+    <div className="child-progress-page">
 
       {/* Child Selector with a Card Display */}
       <div className="child-selector">
@@ -60,6 +64,7 @@ const ChildProgress = () => {
           )}
         </div>
       )}
+    </div>
     </div>
   );
 };

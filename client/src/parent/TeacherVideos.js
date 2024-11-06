@@ -3,11 +3,15 @@ import React, { useState } from 'react';
 import './TeacherVideo.css';
 
 const TeacherVideos = () => {
-  const [videos] = useState([]); // No hardcoded videos
+  const [videos] = useState([]); 
 
   return (
-    <div className="teacher-videos-page">
-      <h1>Teacher's Video Library</h1>
+    <div>
+      <div className="top-menu">
+        <h1>Teacher's Video Library</h1>
+      </div>
+
+      <div className="teacher-videos-page">
 
       {videos.length === 0 ? (
         <p className="no-videos-message">No videos have been posted by teachers yet. Check back later!</p>
@@ -32,6 +36,7 @@ const TeacherVideos = () => {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 };
