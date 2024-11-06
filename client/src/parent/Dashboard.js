@@ -1,29 +1,80 @@
+// Dashboard.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Footer';
 import './Dashboard.css';
+import { Link } from 'react-router-dom';
+
+const ChildForm = ({ index, childData, handleInputChange, handleRemoveChild }) => (
+  <div className="child-form">
+    <h3>Child {index + 1}</h3>
+    <label>
+      Name:
+      <input
+        type="text"
+        name="name"
+        value={childData.name}
+        onChange={(e) => handleInputChange(e, index)}
+        required
+      />
+    </label>
+    <label>
+      Age:
+      <input
+        type="number"
+        name="age"
+        value={childData.age}
+        onChange={(e) => handleInputChange(e, index)}
+        required
+      />
+    </label>
+    <label>
+      Preferred Lesson Time:
+      <input
+        type="time"
+        name="lessonTime"
+        value={childData.lessonTime}
+        onChange={(e) => handleInputChange(e, index)}
+      />
+    </label>
+    <button type="button" onClick={() => handleRemoveChild(index)}>
+      Remove Child
+    </button>
+  </div>
+);
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [children, setChildren] = useState([{ name: '', age: '', lessonTime: '' }]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const subjects = [
-    { name: 'Maths', cssClass: 'subject-maths', route: 'maths' },
-    { name: 'Literacy', cssClass: 'subject-literacy', route: 'literacy' },
-    { name: 'Reading', cssClass: 'subject-reading', route: 'reading' },
-    { name: 'English', cssClass: 'subject-english', route: 'english' },
-    { name: 'Music', cssClass: 'subject-music', route: 'music' },
-    { name: 'Science', cssClass: 'subject-science', route: 'science' },
-    { name: 'Spanish', cssClass: 'subject-spanish', route: 'spanish' },
-    { name: 'Writing', cssClass: 'subject-writing', route: 'writing' },
-  ];
+  const handleAddChild = () => {
+    setChildren([...children, { name: '', age: '', lessonTime: '' }]);
+  };
+
+  const handleRemoveChild = (index) => {
+    setChildren(children.filter((_, i) => i !== index));
+  };
+
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    const updatedChildren = children.map((child, i) =>
+      i === index ? { ...child, [name]: value } : child
+    );
+    setChildren(updatedChildren);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Registered Children:', children);
+  };
 
   const menuItems = [
-    { name: 'Register a child', route: '/RegistrationForm' },
+    { name: 'Subjects ', route: '/Subjects' },
     { name: 'Enrolled Lessons', route: '/EnrolledLessons' },
     { name: 'Quizzes', route: '/Quizzes' },
     { name: 'Videos', route: '/TeacherVideos' },
@@ -35,14 +86,14 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-wrapper">
-      <div className="top-menu">
+      <header className="top-menu">
         <h1>Parent Dashboard</h1>
-        <button className="log">Log out</button>
+        <Link to="/" className="log">Log out</Link>
         <button className="menu-toggle" onClick={toggleMenu}>☰</button>
-      </div>
+      </header>
 
       <div className="dashboard-content">
-        <div className={`side-menu ${isMenuOpen ? 'expanded' : ''}`}>
+        <nav className={`side-menu ${isMenuOpen ? 'expanded' : ''}`}>
           <div className="menu-items">
             {menuItems.map((item, index) => (
               <div
@@ -54,27 +105,26 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
-        </div>
+        </nav>
 
         <div className="main-content">
           <div className="dashboard-container">
-            {/* Message section */}
-            <div className="message">
-              <p>Select a subject to enroll. Watch videos and read books:</p>
-            </div>
-
-            {/* Subjects container */}
-            <div className="subjects-container">
-              {subjects.map((subject) => (
-                <div
-                  key={subject.name}
-                  className={`subject-box ${subject.cssClass}`}
-                  onClick={() => navigate(`/${subject.route}`)}
-                >
-                  <span>{subject.name}</span>
-                </div>
+            <form onSubmit={handleSubmit} className="registration-form">
+              <h2>Register Your Child(ren)</h2>
+              {children.map((child, index) => (
+                <ChildForm
+                  key={index}
+                  index={index}
+                  childData={child}
+                  handleInputChange={handleInputChange}
+                  handleRemoveChild={handleRemoveChild}
+                />
               ))}
-            </div>
+              <button type="button" onClick={handleAddChild} className="add-button">
+                Add Another Child
+              </button>
+              <button type="submit" className="submit-button">Register</button>
+            </form>
           </div>
         </div>
       </div>

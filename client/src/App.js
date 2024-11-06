@@ -12,7 +12,7 @@ import Music from './parent/Music.js';
 import Reading from './parent/Reading.js';
 import Science from './parent/Science.js';
 import Landing from './landing.js';
-import RegistrationForm from './parent/RegistrationForm.js';
+import Subjects from './parent/Subjects.js';
 import EnrolledLessons from './parent/EnrolledLessons.js';
 import Quizzes from './parent/Quizzes.js';
 import ChildProgress from './parent/childProgress.js';
@@ -36,7 +36,7 @@ function App() {
       <Route path="/science" element={<Science />} />
       <Route path="/spanish" element={<Spanish />} />
       <Route path="/writing" element={<Writing />} />
-      <Route path="/RegistrationForm" element={<RegistrationForm />} />
+      <Route path="/Subjects" element={<Subjects />} />
       <Route path="/EnrolledLessons" element={<EnrolledLessons />} />
       <Route path="/Quizzes" element={<Quizzes />} />
       <Route path="/ChildProgress" element={<ChildProgress />} />
