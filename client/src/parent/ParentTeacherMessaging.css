@@ -1,0 +1,114 @@
+/* ParentTeacherMessaging.css */
+.parent-teacher-messaging {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #444;
+  }
+  
+  .search-teacher input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .teacher-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .teacher-item {
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .teacher-item:hover, .teacher-item.selected {
+    background-color: #e0e0e0;
+  }
+  
+  .message-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  .messages-container {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .message {
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .message.sent {
+    background-color: #d1e7dd;
+    text-align: right;
+  }
+  
+  .message.received {
+    background-color: #f8d7da;
+    text-align: left;
+  }
+  
+  .message-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .message-input textarea {
+    resize: vertical;
+    min-height: 80px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .message-input button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .message-input button:hover {
+    background-color: #45a049;
+  }
+  
+  .select-teacher-message {
+    color: #888;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
