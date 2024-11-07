@@ -13,7 +13,6 @@ function Landing() {
       <header className="App-nav">
         <div className="App-logo">🌟 Little Learners 🌟 </div>
         <nav className="App-nav-links">
-          <Link to="/" className="App-nav-link">Home</Link>
           <Link to="/signup" className="App-nav-link">Sign Up</Link>
           <Link to="/signin" className="App-nav-link">Sign In</Link>
         </nav>
