@@ -7,7 +7,7 @@ const TeacherVideos = () => {
 
   return (
     <div>
-      <div className="top-menu">
+      <div>
         <h1>Teacher's Video Library</h1>
       </div>
 
