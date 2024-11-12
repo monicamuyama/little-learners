@@ -1,95 +1,73 @@
 // Dashboard.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Footer from '../Footer';
 import './Dashboard.css';
+import Footer from '../Footer';
 import { Link } from 'react-router-dom';
+import Subjects from './Subjects'
+import ChildForm from './ChildForm'; 
+import EnrolledLessons from './EnrolledLessons.js';
+import Quizzes from './Quizzes.js';
+import ChildProgress from './childProgress.js';
+import TeacherVideos from './TeacherVideos.js';
+import TeacherBooks from './TeacherBooks.js';
+import TeacherReviews from './TeacherReviews.js';
+import ParentTeacherMessaging from './ParentTeacherMessaging.js';
 
-const ChildForm = ({ index, childData, handleInputChange, handleRemoveChild }) => (
-  <div className="child-form">
-    <h3>Child {index + 1}</h3>
-    <label>
-      Name:
-      <input
-        type="text"
-        name="name"
-        value={childData.name}
-        onChange={(e) => handleInputChange(e, index)}
-        required
-      />
-    </label>
-    <label>
-      Age:
-      <input
-        type="number"
-        name="age"
-        value={childData.age}
-        onChange={(e) => handleInputChange(e, index)}
-        required
-      />
-    </label>
-    <label>
-      Preferred Lesson Time:
-      <input
-        type="time"
-        name="lessonTime"
-        value={childData.lessonTime}
-        onChange={(e) => handleInputChange(e, index)}
-      />
-    </label>
-    <button type="button" onClick={() => handleRemoveChild(index)}>
-      Remove Child
-    </button>
-  </div>
-);
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [children, setChildren] = useState([{ name: '', age: '', lessonTime: '' }]);
+  const [selectedMenuItem, setSelectedMenuItem] = useState('ChildForm'); // default to ChildForm
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu visibility
+
+  const menuItems = [
+    { name: 'Register Child', component: 'ChildForm' },
+    { name: 'Subjects', component: 'Subjects' },
+    { name: 'Enrolled Lessons', component: 'EnrolledLessons' },
+    { name: 'Quizzes', component: 'Quizzes' },
+    { name: 'Videos', component: 'TeacherVideos' },
+    { name: 'Books', component: 'TeacherBooks' },
+    { name: "Children's Progress", component: 'ChildProgress' },
+    { name: 'Message Teachers', component: 'ParentTeacherMessaging' },
+    { name: 'Review Teachers', component: 'TeacherReviews' },
+  ];
+
+  const renderContent = () => {
+    switch (selectedMenuItem) {
+      case 'ChildForm':
+        return <ChildForm />;
+      case 'Subjects':
+        return <Subjects />;
+      case 'EnrolledLessons':
+        return <EnrolledLessons />;
+      case 'Quizzes':
+        return <Quizzes />;
+      case 'ChildProgress':
+        return <ChildProgress />;
+      case 'ParentTeacherMessaging':
+        return <ParentTeacherMessaging/>
+      case 'TeacherVideos':
+        return <TeacherVideos/>
+      case 'TeacherBooks':
+        return <TeacherBooks/>
+      case 'TeacherReviews':
+        return <TeacherReviews/>
+        
+  
+      // Add cases for other components as needed
+      default:
+        return <div>Select an item from the menu</div>;
+    }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  const handleAddChild = () => {
-    setChildren([...children, { name: '', age: '', lessonTime: '' }]);
-  };
-
-  const handleRemoveChild = (index) => {
-    setChildren(children.filter((_, i) => i !== index));
-  };
-
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
-    const updatedChildren = children.map((child, i) =>
-      i === index ? { ...child, [name]: value } : child
-    );
-    setChildren(updatedChildren);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Registered Children:', children);
-  };
-
-  const menuItems = [
-    { name: 'Subjects ', route: '/Subjects' },
-    { name: 'Enrolled Lessons', route: '/EnrolledLessons' },
-    { name: 'Quizzes', route: '/Quizzes' },
-    { name: 'Videos', route: '/TeacherVideos' },
-    { name: 'Books', route: '/TeacherBooks' },
-    { name: "Children's Progress", route: '/ChildProgress' },
-    { name: 'Message Teachers', route: '/ParentTeacherMessaging' },
-    { name: 'Review Teachers', route: '/TeacherReviews' },
-  ];
 
   return (
     <div className="dashboard-wrapper">
       <header className="top-menu">
         <h1>Parent Dashboard</h1>
         <Link to="/" className="log">Log out</Link>
-        <button className="menu-toggle" onClick={toggleMenu}>☰</button>
+        <button className="menu-toggle" onClick={toggleMenu}>Menu ☰</button>
       </header>
 
       <div className="dashboard-content">
@@ -98,8 +76,11 @@ const Dashboard = () => {
             {menuItems.map((item, index) => (
               <div
                 key={index}
-                className="menu-item"
-                onClick={() => navigate(item.route)}
+                className={`menu-item ${selectedMenuItem === item.component ? 'active' : ''}`}
+                onClick={() => {
+                  setSelectedMenuItem(item.component);
+                  if (isMenuOpen) setIsMenuOpen(false); // Close menu after selecting an item on small devices
+                }}
               >
                 {item.name}
               </div>
@@ -108,27 +89,9 @@ const Dashboard = () => {
         </nav>
 
         <div className="main-content">
-          <div className="dashboard-container">
-            <form onSubmit={handleSubmit} className="registration-form">
-              <h2>Register Your Child(ren)</h2>
-              {children.map((child, index) => (
-                <ChildForm
-                  key={index}
-                  index={index}
-                  childData={child}
-                  handleInputChange={handleInputChange}
-                  handleRemoveChild={handleRemoveChild}
-                />
-              ))}
-              <button type="button" onClick={handleAddChild} className="add-button">
-                Add Another Child
-              </button>
-              <button type="submit" className="submit-button">Register</button>
-            </form>
-          </div>
+          {renderContent()} {}
         </div>
       </div>
-
       <Footer />
     </div>
   );

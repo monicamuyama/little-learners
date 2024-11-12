@@ -15,7 +15,7 @@ const ChildProgress = () => {
 
   return (
     <div>
-      <div className='top-menu'>
+      <div>
       <h1>Track Your Child's Progress</h1>
 
       </div>

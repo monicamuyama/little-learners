@@ -19,8 +19,6 @@ const Subjects = () => {
 
   return (
     <div className='main-contente'>
-      <div className='top-menu'>
-        <h1>Subjects</h1></div>
       <div className="message">
         <p>Select to enroll for lessons, Watch videos and read books in that particular subject:</p>
       </div>

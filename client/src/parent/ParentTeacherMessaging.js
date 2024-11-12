@@ -35,7 +35,7 @@ const ParentTeacherMessaging = () => {
 
   return (
     <div>
-      <div className='top-menu'>
+      <div>
       <h1>Parent-Teacher Messaging</h1>
 
       </div>

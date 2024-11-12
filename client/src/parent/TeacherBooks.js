@@ -7,7 +7,7 @@ const TeacherBooks = () => {
 
   return (
     <div>
-      <div className='top-menu'>
+      <div>
       <h1>Teacher's Book Library</h1>
 
       </div>
