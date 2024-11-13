@@ -1,5 +1,11 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+// Import the components you want to use
+import TopBarPage from './TopBarPage';
+import QuizzesManagement from './QuizzesManagement';
+import Materials from './Materials';
 
 function App() {
   return (
@@ -18,6 +24,18 @@ function App() {
           Learn React
         </a>
       </header>
+
+      {/* Integrating the new components */}
+      <div className="page-content">
+        {/* Top Bar and Teacher Dashboard */}
+        <TopBarPage />
+
+        {/* Quizzes Management */}
+        <QuizzesManagement />
+
+        {/* Materials Management */}
+        <Materials />
+      </div>
     </div>
   );
 }
