@@ -7,7 +7,7 @@ const Quizzes = () => {
 
   return (
     <div>
-      <div className='top-menu'>
+      <div>
       <h1>Available Quizzes</h1>
 
 

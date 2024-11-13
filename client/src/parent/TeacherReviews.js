@@ -19,7 +19,7 @@ const TeacherReviews = () => {
 
   return (
     <div>
-      <div className='top-menu'>
+      <div>
       <h1>Teacher Reviews</h1>
 
       </div>
