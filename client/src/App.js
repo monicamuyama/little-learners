@@ -20,6 +20,8 @@ import TeacherVideos from './parent/TeacherVideos.js';
 import TeacherBooks from './parent/TeacherBooks.js';
 import TeacherReviews from './parent/TeacherReviews.js';
 import ParentTeacherMessaging from './parent/ParentTeacherMessaging.js';
+// Importing the QuizzesManagement component for the quizzes management section
+import QuizzesManagement from './TeacherDashboard/Components/QuizzesManagement';
 
 function App() {
   return (
@@ -45,7 +47,8 @@ function App() {
       <Route path="/TeacherReviews" element={<TeacherReviews />} />
       <Route path="/ParentTeacherMessaging" element={<ParentTeacherMessaging />} />
 
-
+      {/* New route for the Quizzes Management section in the Teacher Dashboard */}
+      <Route path="/teacher/quizzes-management" element={<QuizzesManagement />} /> {/* New route for managing quizzes */}
 
 
 
