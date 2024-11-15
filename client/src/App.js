@@ -24,7 +24,8 @@ import ParentTeacherMessaging from './parent/ParentTeacherMessaging.js';
 import QuizzesManagement from './TeacherDashboard/Components/QuizzesManagement';
 // Import the LearningMaterialsPage component
 import LearningMaterialsPage from './TeacherDashboard/Components/LearningMaterialsPage';
-
+import AttendanceChart from './TeacherDashboard/Components/AttendanceChart';
+import Performance from './TeacherDashboard/Components/Performance';
 
 function App() {
   return (
@@ -49,13 +50,19 @@ function App() {
       <Route path="/TeacherBooks" element={<TeacherBooks />} />
       <Route path="/TeacherReviews" element={<TeacherReviews />} />
       <Route path="/ParentTeacherMessaging" element={<ParentTeacherMessaging />} />
+      
 
       {/* New route for the Quizzes Management section in the Teacher Dashboard */}
       <Route path="/teacher/quizzes-management" element={<QuizzesManagement />} /> {/* New route for managing quizzes */}
       
        {/* New route for the Learning Materials section in the Teacher Dashboard */}
        <Route path="/teacher/learning-materials" element={<LearningMaterialsPage />} /> {/* New route for managing learning materials */}
-
+       
+       {/* New route for the AttendanceChart section in the Teacher Dashboard */}
+       <Route path="/teacher/AttendanceChart" element={<AttendanceChart />} /> {/* New route for monitoring attendance */} 
+       
+        {/* New route for the Performance section in the Teacher Dashboard */}
+       <Route path="/teacher/Performance" element={<Performance />} /> {/* New route for monitoring performance */}
 
 
       
