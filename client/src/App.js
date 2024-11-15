@@ -22,6 +22,9 @@ import TeacherReviews from './parent/TeacherReviews.js';
 import ParentTeacherMessaging from './parent/ParentTeacherMessaging.js';
 // Importing the QuizzesManagement component for the quizzes management section
 import QuizzesManagement from './TeacherDashboard/Components/QuizzesManagement';
+// Import the LearningMaterialsPage component
+import LearningMaterialsPage from './TeacherDashboard/Components/LearningMaterialsPage';
+
 
 function App() {
   return (
@@ -49,6 +52,9 @@ function App() {
 
       {/* New route for the Quizzes Management section in the Teacher Dashboard */}
       <Route path="/teacher/quizzes-management" element={<QuizzesManagement />} /> {/* New route for managing quizzes */}
+      
+       {/* New route for the Learning Materials section in the Teacher Dashboard */}
+       <Route path="/teacher/learning-materials" element={<LearningMaterialsPage />} /> {/* New route for managing learning materials */}
 
 
 
