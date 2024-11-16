@@ -1,10 +1,9 @@
 import React from 'react';
 import { 
   Card, CardHeader, CardContent, CardActions, Typography, Button 
-} from '@mui/material';  // Importing Material UI components
+} from '@mui/material';
 
 const LearningMaterialsPage = () => {
-  // Sample data
   const myMaterials = [
     { title: 'Introduction to Algebra', type: 'PDF', lastUpdated: '2023-04-15' },
     { title: 'Calculus Concepts', type: 'Video', lastUpdated: '2023-06-01' },
@@ -17,49 +16,59 @@ const LearningMaterialsPage = () => {
   ];
 
   return (
-    <div className="flex flex-col h-full bg-gray-50 p-8">
-      <Card sx={{ boxShadow: 3, borderRadius: 2, backgroundColor: 'white' }}>
+    <div 
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f8f9fa',
+        padding: '16px',
+      }}
+    >
+      <Card sx={{ width: '90%', maxWidth: '800px', boxShadow: 3, borderRadius: 2 }}>
         <CardHeader
           sx={{
             background: 'linear-gradient(to right, #3b82f6, #6366f1)',
             color: 'white',
-            textAlign: 'center'
+            textAlign: 'center',
+            padding: '16px',
           }}
           title={<Typography variant="h4" fontWeight="bold">Learning Materials</Typography>}
           subheader={<Typography variant="body2">Manage, organize, and share educational content with your students.</Typography>}
         />
         <CardContent>
-          <div className="mb-8">
+          <div style={{ marginBottom: '16px' }}>
             <Typography variant="h6" color="primary">My Materials</Typography>
-            <Typography variant="body2" color="textSecondary">View and manage your uploaded learning materials.</Typography>
-            <Button sx={{ mt: 2, backgroundColor: 'green', color: 'white', '&:hover': { backgroundColor: 'green.700' } }}>
+            <Typography variant="body2" color="textSecondary">
+              View and manage your uploaded learning materials.
+            </Typography>
+            <Button
+              variant="contained"
+              color="success"
+              sx={{ mt: 2 }}
+            >
               Add New Material
             </Button>
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full table-auto text-gray-700">
-                <thead className="bg-blue-100">
-                  <tr>
-                    <th className="px-6 py-3 text-left">Title</th>
-                    <th className="px-6 py-3 text-left">Type</th>
-                    <th className="px-6 py-3 text-left">Last Updated</th>
-                    <th className="px-6 py-3 text-right">Actions</th>
+            <div style={{ marginTop: '16px', overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr style={{ backgroundColor: '#e3f2fd' }}>
+                    <th style={{ textAlign: 'left', padding: '8px' }}>Title</th>
+                    <th style={{ textAlign: 'left', padding: '8px' }}>Type</th>
+                    <th style={{ textAlign: 'left', padding: '8px' }}>Last Updated</th>
+                    <th style={{ textAlign: 'right', padding: '8px' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {myMaterials.map((material, index) => (
-                    <tr key={index} className="border-b hover:bg-gray-50">
-                      <td className="px-6 py-4">{material.title}</td>
-                      <td className="px-6 py-4">{material.type}</td>
-                      <td className="px-6 py-4">{material.lastUpdated}</td>
-                      <td className="px-6 py-4 text-right">
-                        <div className="flex justify-end space-x-4">
-                          <Button variant="outlined" size="small" color="primary">
-                            Edit
-                          </Button>
-                          <Button variant="outlined" size="small" color="error">
-                            Delete
-                          </Button>
-                        </div>
+                    <tr key={index} style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '8px' }}>{material.title}</td>
+                      <td style={{ padding: '8px' }}>{material.type}</td>
+                      <td style={{ padding: '8px' }}>{material.lastUpdated}</td>
+                      <td style={{ textAlign: 'right', padding: '8px' }}>
+                        <Button variant="outlined" color="primary" size="small" sx={{ marginRight: '8px' }}>Edit</Button>
+                        <Button variant="outlined" color="error" size="small">Delete</Button>
                       </td>
                     </tr>
                   ))}
@@ -70,27 +79,27 @@ const LearningMaterialsPage = () => {
 
           <div>
             <Typography variant="h6" color="primary">Shared with Me</Typography>
-            <Typography variant="body2" color="textSecondary">View materials that have been shared with you by other teachers.</Typography>
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full table-auto text-gray-700">
-                <thead className="bg-blue-100">
-                  <tr>
-                    <th className="px-6 py-3 text-left">Title</th>
-                    <th className="px-6 py-3 text-left">Shared By</th>
-                    <th className="px-6 py-3 text-left">Last Updated</th>
-                    <th className="px-6 py-3 text-right">Actions</th>
+            <Typography variant="body2" color="textSecondary">
+              View materials that have been shared with you by other teachers.
+            </Typography>
+            <div style={{ marginTop: '16px', overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr style={{ backgroundColor: '#e3f2fd' }}>
+                    <th style={{ textAlign: 'left', padding: '8px' }}>Title</th>
+                    <th style={{ textAlign: 'left', padding: '8px' }}>Shared By</th>
+                    <th style={{ textAlign: 'left', padding: '8px' }}>Last Updated</th>
+                    <th style={{ textAlign: 'right', padding: '8px' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {sharedMaterials.map((material, index) => (
-                    <tr key={index} className="border-b hover:bg-gray-50">
-                      <td className="px-6 py-4">{material.title}</td>
-                      <td className="px-6 py-4">{material.sharedBy}</td>
-                      <td className="px-6 py-4">{material.lastUpdated}</td>
-                      <td className="px-6 py-4 text-right">
-                        <Button variant="outlined" size="small" color="primary">
-                          View
-                        </Button>
+                    <tr key={index} style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '8px' }}>{material.title}</td>
+                      <td style={{ padding: '8px' }}>{material.sharedBy}</td>
+                      <td style={{ padding: '8px' }}>{material.lastUpdated}</td>
+                      <td style={{ textAlign: 'right', padding: '8px' }}>
+                        <Button variant="outlined" color="primary" size="small">View</Button>
                       </td>
                     </tr>
                   ))}
