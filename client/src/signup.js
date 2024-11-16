@@ -27,6 +27,10 @@ function Signup() {
     if (formData.userType === 'Parent') {
       navigate('/parent/dashboard');
     }
+    if (formData.userType === 'Teacher') {
+      navigate('/TeacherDashboard/Components/LearningMaterialsPage');
+    }
+
     // Add additional logic here for other user types like "Teacher"
     console.log('Form submitted:', formData);
   };

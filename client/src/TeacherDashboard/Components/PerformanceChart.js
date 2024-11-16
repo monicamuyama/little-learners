@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import './Performance.css';
+import './PerformanceChart.css';
 
 const PerformanceChart = () => {
   const data = {
@@ -31,4 +31,4 @@ const PerformanceChart = () => {
   );
 };
 
-export default Performance;
+export default PerformanceChart;

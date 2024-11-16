@@ -21,11 +21,11 @@ import TeacherBooks from './parent/TeacherBooks.js';
 import TeacherReviews from './parent/TeacherReviews.js';
 import ParentTeacherMessaging from './parent/ParentTeacherMessaging.js';
 // Importing the QuizzesManagement component for the quizzes management section
-import QuizzesManagement from './TeacherDashboard/Components/QuizzesManagement';
+import QuizzesManagement from './TeacherDashboard/Components/QuizzesManagement.js';
 // Import the LearningMaterialsPage component
-import LearningMaterialsPage from './TeacherDashboard/Components/LearningMaterialsPage';
-import AttendanceChart from './TeacherDashboard/Components/AttendanceChart';
-import Performance from './TeacherDashboard/Components/Performance';
+import LearningMaterialsPage from './TeacherDashboard/Components/LearningMaterialsPage.js';
+import AttendanceChart from './TeacherDashboard/Components/AttendanceChart.js';
+import PerformanceChart from './TeacherDashboard/Components/PerformanceChart.js';
 
 function App() {
   return (
@@ -53,16 +53,16 @@ function App() {
       
 
       {/* New route for the Quizzes Management section in the Teacher Dashboard */}
-      <Route path="/teacher/quizzes-management" element={<QuizzesManagement />} /> {/* New route for managing quizzes */}
+      <Route path="/QuizzesManagement" element={<QuizzesManagement />} /> {/* New route for managing quizzes */}
       
        {/* New route for the Learning Materials section in the Teacher Dashboard */}
-       <Route path="/teacher/learning-materials" element={<LearningMaterialsPage />} /> {/* New route for managing learning materials */}
+       <Route path="/LearningMaterialsPage" element={<LearningMaterialsPage />} /> {/* New route for managing learning materials */}
        
        {/* New route for the AttendanceChart section in the Teacher Dashboard */}
-       <Route path="/teacher/AttendanceChart" element={<AttendanceChart />} /> {/* New route for monitoring attendance */} 
+       <Route path="/AttendanceChart" element={<AttendanceChart />} /> {/* New route for monitoring attendance */} 
        
         {/* New route for the Performance section in the Teacher Dashboard */}
-       <Route path="/teacher/Performance" element={<Performance />} /> {/* New route for monitoring performance */}
+       <Route path="/PerformanceChart" element={<PerformanceChart />} /> {/* New route for monitoring performance */}
 
 
       
