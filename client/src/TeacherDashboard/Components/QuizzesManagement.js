@@ -41,50 +41,80 @@ const QuizzesManagement = () => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6">
-      <h2 className="text-2xl font-bold mb-4">Quizzes Management</h2>
-      <div className="space-y-4">
-        <div className="flex items-center space-x-4">
+    <div 
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f4f4f4',
+        padding: '16px',
+      }}
+    >
+      <div style={{ width: '90%', maxWidth: '800px', background: 'white', borderRadius: '12px', padding: '24px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', textAlign: 'center' }}>
+          Quizzes Management
+        </h2>
+        <div style={{ marginBottom: '16px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           <input
             type="text"
             value={newQuiz.name}
             onChange={(e) => setNewQuiz({ ...newQuiz, name: e.target.value })}
-            className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-500"
             placeholder="Quiz Name"
+            style={{
+              flex: 1,
+              padding: '10px',
+              border: '1px solid #ccc',
+              borderRadius: '8px',
+            }}
           />
           <input
             type="date"
             value={newQuiz.dueDate}
             onChange={(e) => setNewQuiz({ ...newQuiz, dueDate: e.target.value })}
-            className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-500"
+            style={{
+              padding: '10px',
+              border: '1px solid #ccc',
+              borderRadius: '8px',
+            }}
           />
           <button
             onClick={handleQuizAdd}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg flex items-center space-x-2"
+            style={{
+              backgroundColor: '#3b82f6',
+              color: 'white',
+              padding: '10px 16px',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+            }}
           >
-            <PlusIcon className="h-5 w-5" />
-            <span>Add Quiz</span>
+            <PlusIcon style={{ height: '18px', width: '18px' }} />
+            Add Quiz
           </button>
         </div>
-        <div className="overflow-x-auto">
-          <table className="w-full table-auto">
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
-              <tr className="bg-gray-100">
-                <th className="px-4 py-2 text-left">Name</th>
-                <th className="px-4 py-2 text-left">Due Date</th>
-                <th className="px-4 py-2 text-left">Questions</th>
-                <th className="px-4 py-2 text-left">Average Score</th>
-                <th className="px-4 py-2 text-left">Actions</th>
+              <tr style={{ background: '#f9fafb' }}>
+                <th style={{ textAlign: 'left', padding: '12px', borderBottom: '1px solid #ddd' }}>Name</th>
+                <th style={{ textAlign: 'left', padding: '12px', borderBottom: '1px solid #ddd' }}>Due Date</th>
+                <th style={{ textAlign: 'left', padding: '12px', borderBottom: '1px solid #ddd' }}>Questions</th>
+                <th style={{ textAlign: 'left', padding: '12px', borderBottom: '1px solid #ddd' }}>Average Score</th>
+                <th style={{ textAlign: 'right', padding: '12px', borderBottom: '1px solid #ddd' }}>Actions</th>
               </tr>
             </thead>
             <tbody>
               {quizzes.map((quiz, index) => (
-                <tr key={index} className="border-b">
-                  <td className="px-4 py-2">{quiz.name}</td>
-                  <td className="px-4 py-2">{quiz.dueDate}</td>
-                  <td className="px-4 py-2">{quiz.numQuestions}</td>
-                  <td className="px-4 py-2">{quiz.avgScore}%</td>
-                  <td className="px-4 py-2 flex space-x-2">
+                <tr key={index} style={{ borderBottom: '1px solid #ddd' }}>
+                  <td style={{ padding: '12px' }}>{quiz.name}</td>
+                  <td style={{ padding: '12px' }}>{quiz.dueDate}</td>
+                  <td style={{ padding: '12px' }}>{quiz.numQuestions}</td>
+                  <td style={{ padding: '12px' }}>{quiz.avgScore}%</td>
+                  <td style={{ textAlign: 'right', padding: '12px', display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
                     <button
                       onClick={() =>
                         handleQuizEdit(index, {
@@ -94,15 +124,15 @@ const QuizzesManagement = () => {
                           avgScore: 88,
                         })
                       }
-                      className="text-yellow-500 hover:text-yellow-700 focus:outline-none"
+                      style={{ color: '#fbbf24', border: 'none', background: 'none', cursor: 'pointer' }}
                     >
-                      <EditIcon className="h-5 w-5" />
+                      <EditIcon style={{ height: '18px', width: '18px' }} />
                     </button>
                     <button
                       onClick={() => handleQuizDelete(index)}
-                      className="text-red-500 hover:text-red-700 focus:outline-none"
+                      style={{ color: '#ef4444', border: 'none', background: 'none', cursor: 'pointer' }}
                     >
-                      <TrashIcon className="h-5 w-5" />
+                      <TrashIcon style={{ height: '18px', width: '18px' }} />
                     </button>
                   </td>
                 </tr>
